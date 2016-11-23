@@ -22,3 +22,14 @@
   template: src=templates/index.php dest=/var/www/html/index.php
   notify: restart httpd
 
+- name: Install goss
+  shell: 'curl -fsSL https://goss.rocks/install | sh'
+  args:
+    creates: "/usr/local/bin/goss"
+
+- name: Place goss file
+  template: src=templates/goss.json dest=/goss.json
+
+- name: validate goss
+  command: 'goss --gossfile "/goss.json" validate --format documentation'
+
