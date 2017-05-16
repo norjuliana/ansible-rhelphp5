@@ -1,4 +1,4 @@
 ---
 - hosts: all
   roles:
-    - { role: ansible-rhelphp5  }
+    - { role: ansible-rhelphp5 }
